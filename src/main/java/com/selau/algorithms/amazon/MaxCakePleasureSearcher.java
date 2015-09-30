@@ -1,8 +1,5 @@
 package com.selau.algorithms.amazon;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 /**
  *  Problem B:
  *
@@ -12,9 +9,11 @@ import org.junit.Test;
  *
  *  Improvement: generate only valid possibilities changing the iterations indexes
  *  and use dynamic programming to not have to calculate possibilities already evaluated.
+ *
+ * @author selau
+ *
  */
-
-public class QuestionB {
+public class MaxCakePleasureSearcher {
 
     public static Integer cake(final int[] layers) {
         int maxPleasure = 0;
@@ -45,34 +44,6 @@ public class QuestionB {
             }
         }
         return totalPleasure;
-    }
-
-    @Test
-    public void testCases() {
-
-        final int[] layersA = {10, -2, 5, -4, 3, -5, 1};
-        Assert.assertEquals(Integer.valueOf(14), QuestionB.cake(layersA));
-
-        final int[] layersB = {10, -2};
-        Assert.assertEquals(Integer.valueOf(10), QuestionB.cake(layersB));
-
-        final int[] layersC = {10};
-        Assert.assertEquals(Integer.valueOf(10), QuestionB.cake(layersC));
-
-        final int[] layersD = {};
-        Assert.assertEquals(Integer.valueOf(0), QuestionB.cake(layersD));
-
-        final int[] layersE = {-2};
-        Assert.assertEquals(Integer.valueOf(0), QuestionB.cake(layersE));
-
-        final int[] layersF = {-1, -5, -7, 9, 10, 8};
-        Assert.assertEquals(Integer.valueOf(27), QuestionB.cake(layersF));
-
-        final int[] layersG = {-1, -2, 1, -7};
-        Assert.assertEquals(Integer.valueOf(0), QuestionB.cake(layersG));
-
-        final int[] layersH = {-99, 100, -98};
-        Assert.assertEquals(Integer.valueOf(2), QuestionB.cake(layersH));
     }
 
 }
