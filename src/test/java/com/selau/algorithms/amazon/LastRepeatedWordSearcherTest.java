@@ -23,8 +23,14 @@ public class LastRepeatedWordSearcherTest {
         final Stream streamC = new CharStream("The angry dog was red. The angry dog was red.");
         Assert.assertEquals("red", LastRepeatedWordSearcher.lastRepeated(streamC));
 
-        final Stream streamD = new CharStream("");
-        Assert.assertEquals("", LastRepeatedWordSearcher.lastRepeated(streamD));
+        final Stream streamD = new CharStream("The angry dog was red! The angry dog was red.");
+        Assert.assertEquals("red", LastRepeatedWordSearcher.lastRepeated(streamD));
+
+        final Stream streamE = new CharStream("The angry dog was red? The angry dog was red.");
+        Assert.assertEquals("red", LastRepeatedWordSearcher.lastRepeated(streamE));
+
+        final Stream streamF = new CharStream("");
+        Assert.assertEquals("", LastRepeatedWordSearcher.lastRepeated(streamF));
     }
 
 }

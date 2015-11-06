@@ -14,8 +14,7 @@ import java.util.Set;
 public class LastRepeatedWordSearcher {
 
     private static final String EMPTY = "";
-    private static final char SPACE = ' ';
-    private static final char DOT = '.';
+    private static final String NON_WORD_REGEX = "\\W";
 
     public static String lastRepeated(final Stream input) {
         final Set<String> wordsRead = new HashSet<String>();
@@ -24,9 +23,9 @@ public class LastRepeatedWordSearcher {
         StringBuffer wordBuffer = new StringBuffer();
 
         while (input.hasNext()) {
-            final char nextCharacter = input.next();
+            final String nextCharacter = String.valueOf(input.next());
 
-            if ((nextCharacter == SPACE) || (nextCharacter == DOT)) {
+            if (nextCharacter.matches(NON_WORD_REGEX)) {
                 if (wordBuffer.length() > 0) {
                     final String newWord = wordBuffer.toString();
 
